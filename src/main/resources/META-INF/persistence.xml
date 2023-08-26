@@ -24,7 +24,8 @@
             <property name="hibernate.use_sql_comments" value="true"/>
             <!-- Buffering - 쿼리를 10개까지 쌓아뒀다가 한 번에 보냄(실행) -->
             <property name="hibernate.jdbc.batch_size" value="10"/>
-            <!--<property name="hibernate.hbm2ddl.auto" value="create" />-->
+            <!-- application 실행 시 매핑된 Entity 정보에 따라 테이블을 drop, create -->
+            <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
     </persistence-unit>
 </persistence>

@@ -1,6 +1,6 @@
 package study.jpastudy;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -22,7 +22,13 @@ public class JpaMain {
         
         try {
 
-            
+            Member member = new Member(1L, "han");
+            member.setRoleType(RoleType.USER);
+            member.setCreatedDate(LocalDateTime.now());
+
+            em.persist(member);
+
+            tx.commit();
         } catch (Exception e) {
             tx.rollback();
         } finally {
